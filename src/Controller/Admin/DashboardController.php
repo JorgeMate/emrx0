@@ -10,6 +10,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
+use App\Entity\Patient;
+
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+
 class DashboardController extends AbstractDashboardController
 {
     #[IsGranted('ROLE_ADMIN')]
@@ -45,7 +49,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToDashboard('Panel de Control', 'fa fa-home');
+        yield MenuItem::section();
+        yield MenuItem::linkToCrud('Pacientes', 'fa solid fa-hospital-user', Patient::class);
     }
 }
