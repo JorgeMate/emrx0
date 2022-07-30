@@ -3,6 +3,6 @@ controllers:
     type: attribute
 
 app_logout:
-    path: /logout
+    path: /logout/{_locale}/
     methods: GET
 

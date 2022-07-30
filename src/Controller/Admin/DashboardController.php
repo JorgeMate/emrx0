@@ -8,14 +8,23 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 use App\Entity\Patient;
 
-use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 
 class DashboardController extends AbstractDashboardController
 {
+
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     #[IsGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin_dashboard')]
     public function index(): Response
@@ -49,8 +58,8 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Panel de Control', 'fa fa-home');
+        yield MenuItem::linkToDashboard($this->translator->trans('control.panel'), 'fa fa-home');
         yield MenuItem::section();
-        yield MenuItem::linkToCrud('Pacientes', 'fa solid fa-hospital-user', Patient::class);
+        yield MenuItem::linkToCrud($this->translator->trans('patients'), 'fa solid fa-hospital-user', Patient::class);
     }
 }
