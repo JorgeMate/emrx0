@@ -13,12 +13,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class DashboardController extends AbstractDashboardController
 {
     #[IsGranted('ROLE_ADMIN')]
-    #[Route('/admin', name: 'admin')]
+    #[Route('/admin', name: 'admin_dashboard')]
     public function index(): Response
     {
-        return parent::index();
+        //return parent::index();
 
-        // return $this->render('admin/index.html.twig');
+        return $this->render('admin/index.html.twig');
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
