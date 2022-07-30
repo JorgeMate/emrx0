@@ -5,6 +5,10 @@
 			<tool tool-id="lokalise.com" tool-name="Lokalise"/>
 		</header>
 		<body>
+			<trans-unit id="idioma" resname="idioma">
+				<source>Seleccione idioma</source>
+				<target>Selecteer taal</target>
+			</trans-unit>
 			<trans-unit id="control.panel" resname="control.panel">
 				<source>Panel de Control</source>
 				<target>Bedieningspaneel</target>
