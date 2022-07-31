@@ -10,9 +10,11 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TelephoneField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PatientCrudController extends AbstractCrudController
@@ -40,9 +42,12 @@ class PatientCrudController extends AbstractCrudController
                 ->setFormat('dd MMM yy - HH:mm'),
             TextField::new('firstname', $this->translator->trans('firstname')),
             TextField::new('lastname', $this->translator->trans('lastname')),
+            TelephoneField::new('tel', $this->translator->trans('tel')),
             DateField::new('birthdate', $this->translator->trans('birthdate')),
             BooleanField::new('gender', $this->translator->trans('woman'))->renderAsSwitch(false),
-            TextField::new('getAge', $this->translator->trans('age'))->onlyOnIndex()
+            TextField::new('getAge', $this->translator->trans('age'))->onlyOnIndex(),
+            EmailField::new('email')->hideOnIndex(),
+            AssociationField::new('insurance', $this->translator->trans('insurance.name')),
         ];
     }
 

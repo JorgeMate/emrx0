@@ -17,18 +17,18 @@ doctrine:
                 alias: App
 
             translatable:
-                type: annotation # or attribute
+                type: attribute # or annotation 
                 alias: Gedmo
                 prefix: Gedmo\Translatable\Entity
                 # make sure vendor library location is correct
                 dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Translatable/Entity"
             loggable:
-                type: annotation # or attribute
+                type: attribute
                 alias: Gedmo
                 prefix: Gedmo\Loggable\Entity
                 dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Loggable/Entity"
             tree:
-                type: annotation # or attribute
+                type: attribute
                 alias: Gedmo
                 prefix: Gedmo\Tree\Entity
                 dir: "%kernel.project_dir%/vendor/gedmo/doctrine-extensions/src/Tree/Entity"

@@ -8,6 +8,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 
+use function PHPUnit\Framework\isNull;
+
 #[ORM\Entity(repositoryClass: PatientRepository::class)]
 class Patient
 {
@@ -37,6 +39,9 @@ class Patient
 
     #[ORM\Column(length: 127, nullable: true)]
     private ?string $email = null;
+
+    #[ORM\ManyToOne(inversedBy: 'patients')]
+    private ?Insurance $insurance = null;
 
 
 
@@ -108,10 +113,16 @@ class Patient
 
     public function getAge()
     {
-        $now = new \DateTime('now');
+        
         $birth = $this->getBirthdate();
-        $difference = $now->diff($birth);
-        return $difference->format('%y');
+        if (isNull($birth)){
+            return null;
+        } else {
+            $now = new \DateTime('now');
+            $difference = $now->diff($birth);
+            return $difference->format('%y');
+        }
+        
     }
 
     public function getTel(): ?string
@@ -134,6 +145,18 @@ class Patient
     public function setEmail(?string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getInsurance(): ?Insurance
+    {
+        return $this->insurance;
+    }
+
+    public function setInsurance(?Insurance $insurance): self
+    {
+        $this->insurance = $insurance;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -13,6 +14,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 use App\Entity\Patient;
+use App\Entity\Insurance;
 
 
 class DashboardController extends AbstractDashboardController
@@ -61,5 +63,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard($this->translator->trans('control.panel'), 'fa fa-home');
         yield MenuItem::section();
         yield MenuItem::linkToCrud($this->translator->trans('patients'), 'fa solid fa-hospital-user', Patient::class);
+        yield MenuItem::section();
+        yield MenuItem::linkToCrud($this->translator->trans('insurances'), 'fa solid fa-truck-medical', Insurance::class);
+
     }
 }
