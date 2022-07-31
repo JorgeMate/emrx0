@@ -5,17 +5,37 @@
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="1zgBDsg" resname="Control panel">
-        <source>Control panel</source>
-        <target>__Control panel</target>
+      <trans-unit id="oKr0OQU" resname="choose.language">
+        <source>choose.language</source>
+        <target>Elija idioma</target>
       </trans-unit>
-      <trans-unit id="vf0.I4H" resname="Patients">
-        <source>Patients</source>
-        <target>__Patients</target>
+      <trans-unit id="RS8KfsI" resname="control.panel">
+        <source>control.panel</source>
+        <target>Panel de control</target>
       </trans-unit>
-      <trans-unit id="pP5lJk7" resname="Language">
-        <source>Language</source>
-        <target>__Language</target>
+      <trans-unit id="n5x8.e7" resname="patients">
+        <source>patients</source>
+        <target>Pacientes</target>
+      </trans-unit>
+      <trans-unit id="IpX.eov" resname="patient">
+        <source>patient</source>
+        <target>paciente</target>
+      </trans-unit>
+      <trans-unit id="TP3eab3" resname="firstname">
+        <source>firstname</source>
+        <target>__firstname</target>
+      </trans-unit>
+      <trans-unit id="VbXFH4Z" resname="lastname">
+        <source>lastname</source>
+        <target>__lastname</target>
+      </trans-unit>
+      <trans-unit id="yYJxfTz" resname="birthdate">
+        <source>birthdate</source>
+        <target>__birthdate</target>
+      </trans-unit>
+      <trans-unit id="cMLFYZw" resname="createdAt">
+        <source>createdAt</source>
+        <target>__createdAt</target>
       </trans-unit>
     </body>
   </file>

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="en" target-language="nl" datatype="plaintext" original="file.ext">
+  <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
       <trans-unit id="oKr0OQU" resname="choose.language">
         <source>choose.language</source>
-        <target>Kies een taal</target>
+        <target>Choose your language</target>
       </trans-unit>
       <trans-unit id="RS8KfsI" resname="control.panel">
         <source>control.panel</source>
-        <target>Bedieningspaneel</target>
+        <target>Dashboard</target>
       </trans-unit>
       <trans-unit id="n5x8.e7" resname="patients">
         <source>patients</source>
-        <target>Patiënten</target>
+        <target>Patients</target>
       </trans-unit>
       <trans-unit id="IpX.eov" resname="patient">
         <source>patient</source>

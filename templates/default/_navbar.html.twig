@@ -13,7 +13,6 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
       
         <li class="nav-item">
           <span class="nav-link" href="#"></span>
@@ -26,18 +25,18 @@
         <span class="nav-item dropdown">
 
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-globe" aria-hidden="true"></i> {{ 'idioma'|trans|raw }} ( <span class="caret"></span> {{ app.request.locale|upper }} )
+            <i class="fa-solid fa-globe" aria-hidden="true"></i> {{ 'choose.language'|trans|raw }} ( <span class="caret"></span> {{ app.request.locale|upper }} )
           </a>
 
-            <ul class="dropdown-menu locales" role="menu" aria-labelledby="locales">
-                {% for locale in locales() %}
-                <li {% if app.request.locale == locale.code %}aria-checked="true" class="enabled"{% else %}aria-checked="false"{% endif %} role="menuitem">
-                    <a class="dropdown-item" href="{{ path(app.request.get('_route', 'blog_index'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">
-                        {{ locale.name|capitalize }}
-                    </a>
-                </li>
-                {% endfor %}
-            </ul>
+          <ul class="dropdown-menu locales" role="menu" aria-labelledby="locales">
+              {% for locale in locales() %}
+              <li {% if app.request.locale == locale.code %}aria-checked="true" class="enabled"{% else %}aria-checked="false"{% endif %} role="menuitem">
+                  <a class="dropdown-item" href="{{ path(app.request.get('_route', 'blog_index'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">
+                      {{ locale.name|capitalize }}
+                  </a>
+              </li>
+              {% endfor %}
+          </ul>
 
         </span>
 

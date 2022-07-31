@@ -32,6 +32,12 @@ class Patient
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column(length: 31, nullable: true)]
+    private ?string $tel = null;
+
+    #[ORM\Column(length: 127, nullable: true)]
+    private ?string $email = null;
+
 
 
 
@@ -100,5 +106,36 @@ class Patient
         return $this;
     }
 
+    public function getAge()
+    {
+        $now = new \DateTime('now');
+        $birth = $this->getBirthdate();
+        $difference = $now->diff($birth);
+        return $difference->format('%y');
+    }
+
+    public function getTel(): ?string
+    {
+        return $this->tel;
+    }
+
+    public function setTel(?string $tel): self
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(?string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
 
 }
