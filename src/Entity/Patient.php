@@ -3,7 +3,10 @@
 namespace App\Entity;
 
 use App\Repository\PatientRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: PatientRepository::class)]
 class Patient
@@ -18,6 +21,19 @@ class Patient
 
     #[ORM\Column(length: 127)]
     private ?string $lastname = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?bool $gender = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $birthdate = null;
+
+    #[Gedmo\Timestampable(on: 'create')]
+    #[ORM\Column]
+    private ?\DateTimeImmutable $createdAt = null;
+
+
+
 
     public function getId(): ?int
     {
@@ -47,4 +63,42 @@ class Patient
 
         return $this;
     }
+
+    public function isGender(): ?bool
+    {
+        return $this->gender;
+    }
+
+    public function setGender(?bool $gender): self
+    {
+        $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getBirthdate(): ?\DateTimeInterface
+    {
+        return $this->birthdate;
+    }
+
+    public function setBirthdate(?\DateTimeInterface $birthdate): self
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+
 }
