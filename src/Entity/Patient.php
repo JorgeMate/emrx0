@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PatientRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -42,6 +44,14 @@ class Patient
 
     #[ORM\ManyToOne(inversedBy: 'patients')]
     private ?Insurance $insurance = null;
+
+    #[ORM\OneToMany(mappedBy: 'patient', targetEntity: Consult::class, orphanRemoval: true)]
+    private Collection $consults;
+
+    public function __construct()
+    {
+        $this->consults = new ArrayCollection();
+    }
 
 
 
@@ -157,6 +167,36 @@ class Patient
     public function setInsurance(?Insurance $insurance): self
     {
         $this->insurance = $insurance;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Consult>
+     */
+    public function getConsults(): Collection
+    {
+        return $this->consults;
+    }
+
+    public function addConsult(Consult $consult): self
+    {
+        if (!$this->consults->contains($consult)) {
+            $this->consults->add($consult);
+            $consult->setPatient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeConsult(Consult $consult): self
+    {
+        if ($this->consults->removeElement($consult)) {
+            // set the owning side to null (unless already changed)
+            if ($consult->getPatient() === $this) {
+                $consult->setPatient(null);
+            }
+        }
 
         return $this;
     }

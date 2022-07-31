@@ -35,7 +35,7 @@ class InsuranceCrudController extends AbstractCrudController
     {
         return [
             IdField::new('id')->hideOnForm(),
-            TextField::new('name', $this->translator->trans('insurance.name')),
+            TextField::new('name', $this->translator->trans('insurance')),
             TextField::new('code', $this->translator->trans('insurance.code')),
             TelephoneField::new('tel', $this->translator->trans('tel')),
             EmailField::new('email'),

@@ -39,15 +39,17 @@ class PatientCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             DateTimeField::new('createdAt', $this->translator->trans('createdAt'))->hideOnForm()
-                ->setFormat('dd MMM yy - HH:mm'),
+                ->setFormat('dd MMM yy | HH:mm'),
             TextField::new('firstname', $this->translator->trans('firstname')),
             TextField::new('lastname', $this->translator->trans('lastname')),
             TelephoneField::new('tel', $this->translator->trans('tel')),
-            DateField::new('birthdate', $this->translator->trans('birthdate')),
-            BooleanField::new('gender', $this->translator->trans('woman'))->renderAsSwitch(false),
+            DateField::new('birthdate', $this->translator->trans('birthdate'))
+                ->setFormat('dd-MMM-yyyy'),
+            #BooleanField::new('gender', $this->translator->trans('woman'))->renderAsSwitch(false),
             TextField::new('getAge', $this->translator->trans('age'))->onlyOnIndex(),
             EmailField::new('email')->hideOnIndex(),
-            AssociationField::new('insurance', $this->translator->trans('insurance.name')),
+            AssociationField::new('insurance', $this->translator->trans('insurance')),
+            AssociationField::new('consults', $this->translator->trans('consults'))
         ];
     }
 
@@ -56,6 +58,9 @@ class PatientCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInSingular($this->translator->trans('patient'))
             ->setEntityLabelInPlural($this->translator->trans('patients'))
+
+            ->setDateFormat('...')
+            ->setDefaultSort(['createdAt' => 'DESC'])
         ;
     }
     

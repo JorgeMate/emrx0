@@ -41,6 +41,34 @@
         <source>woman</source>
         <target>__woman</target>
       </trans-unit>
+      <trans-unit id="7wJIVdM" resname="insurances">
+        <source>insurances</source>
+        <target>__insurances</target>
+      </trans-unit>
+      <trans-unit id="ZKTtb9i" resname="insurance.code">
+        <source>insurance.code</source>
+        <target>__insurance.code</target>
+      </trans-unit>
+      <trans-unit id="9DE9toj" resname="tel">
+        <source>tel</source>
+        <target>__tel</target>
+      </trans-unit>
+      <trans-unit id="q1qpcHT" resname="notes">
+        <source>notes</source>
+        <target>__notes</target>
+      </trans-unit>
+      <trans-unit id="_5z3Vga" resname="enabled">
+        <source>enabled</source>
+        <target>__enabled</target>
+      </trans-unit>
+      <trans-unit id="ZOiTerx" resname="insurance">
+        <source>insurance</source>
+        <target>__insurance</target>
+      </trans-unit>
+      <trans-unit id="AT9UQAy" resname="age">
+        <source>age</source>
+        <target>__age</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
